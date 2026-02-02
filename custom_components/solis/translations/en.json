@@ -53,7 +53,8 @@
             "init": {
                 "data": {
                     "refresh_ok": "Refresh interval in seconds (default 300s)",
-                    "refresh_nok": "Refresh interval in seconds for errors (default 60s)"
+                    "refresh_nok": "Refresh interval in seconds for errors (default 60s)",
+                    "portal_domain": "PV Portal version (SolisCloud? Read the README)"
                 },
                 "sections": {
                     "Control": {
