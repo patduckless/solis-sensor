@@ -60,6 +60,8 @@ class SolisOptionsFlowHandler(OptionsFlow):
 
             updated_config[CONF_CONTROL] = control_section.get(
                 CONF_CONTROL, updated_config.get(CONF_CONTROL, False))
+            updated_config[CONF_PORTAL_DOMAIN] = user_input.get(
+                CONF_PORTAL_DOMAIN, updated_config.get(CONF_PORTAL_DOMAIN, "https://v3.soliscloud.com:13333"))
             updated_config[CONF_REFRESH_OK] = user_input.get(
                 CONF_REFRESH_OK, updated_config.get(CONF_REFRESH_OK, 300))
             updated_config[CONF_REFRESH_NOK] = user_input.get(
@@ -73,10 +75,12 @@ class SolisOptionsFlowHandler(OptionsFlow):
             )
 
         data_schema = {
+            vol.Required(CONF_PORTAL_DOMAIN, default=self.config_entry.data.get(
+                CONF_PORTAL_DOMAIN, "https://v3.soliscloud.com:13333")): cv.string,
             vol.Required(CONF_REFRESH_OK, default=self.config_entry.data.get(
-                            CONF_REFRESH_OK, 300)): cv.positive_int,
+                CONF_REFRESH_OK, 300)): cv.positive_int,
             vol.Required(CONF_REFRESH_NOK, default=self.config_entry.data.get(
-                            CONF_REFRESH_NOK, 60)): cv.positive_int,
+                CONF_REFRESH_NOK, 60)): cv.positive_int,
             vol.Required("Control"): data_entry_flow.section(
                 vol.Schema(
                     {
