@@ -45,7 +45,7 @@ CONF_REFRESH_NOK = "refresh_nok"
 
 DOMAIN = "solis"
 SENSOR_PREFIX = "Solis"
-DEFAULT_DOMAIN = "https://www.soliscloud.com:13333"
+DEFAULT_DOMAIN = "https://v3.soliscloud.com:13333"
 
 # Supported sensor types:
 # Key: ['label', unit, icon, device class, state class, api_attribute_name]
